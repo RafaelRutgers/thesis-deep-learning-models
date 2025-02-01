@@ -26,3 +26,4 @@ Model-Specific Notes
 - The LSTM_CLASS.py and CNN-LSTM-HYBRID_CLASS.py files contain an internal windowing function.
 - Ensure this function is called before scaling and training the models.
 - In the CNN-LSTM hybrid class, spectral density values are repeated to match the time dimension of a full storm (3600 seconds) to enable concatenation of the two inputs.
+- The error metrics used are Keras' built-in Mean Absolute Error (MAE), custom made Mean Absolute Percentage Error (MAPE), and Weighted Absolute Percentage Error (WAPE). Keras also has a built-in MAPE function, but has a set epsilon term. The MAPE (with adjustable epsilon term) and WAPE are also added to the repository.
