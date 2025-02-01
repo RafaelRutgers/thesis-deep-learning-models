@@ -1,8 +1,28 @@
 # thesis-deep-learning-models
-Codes for the CNN, LSTM, and CNN-LSTM hybrid models for the prediction of the tilt response of Very Large Floating Structures. All models predict the tilt response at 50 locations along a fictive OFPV platform for each second during a 1 hour storm. Only the sea state is used as a variable input for all the models. These are spectral density values for the CNN and CNN-LSTM hybrid. Two wave elevation values per second are used as a variable input for the LSTM and CNN-LSTM hybrid. The latter thus includes two types of inputs.
+This repository contains the code for CNN, LSTM, and CNN-LSTM hybrid models used to predict the tilt response of Very Large Floating Structures (VLFSs).
 
-The required packages to run these codes are given in the file Packages.py. The codes are developed in Google Colab. When not using Google Colab, the concerned import packages can be ignored.
+Overview
 
-The data used, is created by a FE-FSI model, and can be sent upon request. Make sure to properly prepare the data: split and scale the data, and stratify if wanted.
+All models predict the tilt response at 50 locations along a fictive Offshore Floating Photovoltaic (OFPV) platform for every second during a one-hour storm. The only variable input for all models is the sea state:
+	•	The CNN and CNN-LSTM hybrid models use spectral density values as input.
+	•	The LSTM and CNN-LSTM hybrid models use two wave elevation values per second as input.
+	•	The CNN-LSTM hybrid combines both spectral density values and wave elevation data, incorporating two types of inputs.
 
-The LSTM_CLASS.py and CNN-LSTM-HYBRID_CLASS.py include a windowing function inside the class. Make sure to call this function before scaling and training. In the CNN-LSTM hybrid class the spectral density values are concatenated as many times to match the time dimension of one storm (3600 seconds).
+Requirements & Installation
+	•	The required packages are listed in requirements.txt.
+	•	The modules used in this project are provided in Modules.py.
+	•	The code was developed using Google Colab.
+	•	If running the code outside Google Colab, you can safely ignore Colab-specific imports.
+
+Data Availability & Preparation
+
+The dataset used in this study was generated using a Finite Element - Fluid-Structure Interaction (FE-FSI) model and is available upon request.
+
+If using the dataset, ensure proper preprocessing, including:
+	•	Splitting and scaling the data.
+	•	Stratifying, if necessary.
+
+Model-Specific Notes
+	•	The LSTM_CLASS.py and CNN-LSTM-HYBRID_CLASS.py files contain an internal windowing function.
+	•	Ensure this function is called before scaling and training the models.
+	•	In the CNN-LSTM hybrid class, spectral density values are repeated to match the time dimension of a full storm (3600 seconds).
