@@ -25,4 +25,4 @@ If using the dataset, ensure proper preprocessing, including:
 Model-Specific Notes
 - The LSTM_CLASS.py and CNN-LSTM-HYBRID_CLASS.py files contain an internal windowing function.
 - Ensure this function is called before scaling and training the models.
-- In the CNN-LSTM hybrid class, spectral density values are repeated to match the time dimension of a full storm (3600 seconds).
+- In the CNN-LSTM hybrid class, spectral density values are repeated to match the time dimension of a full storm (3600 seconds) to enable concatenation of the two inputs.
