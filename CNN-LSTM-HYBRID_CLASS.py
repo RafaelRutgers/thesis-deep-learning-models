@@ -191,11 +191,11 @@ class PlatformTiltPredictor:
         x_combined = layers.Concatenate(axis=-1, name='concatenate')([x, wave_height_input])
 
         # First LSTM Block
-        x = layers.GRU(256, return_sequences=True, activation='tanh', recurrent_activation='sigmoid', name='lstm_1')(x_combined)
+        x = layers.LSTM(256, return_sequences=True, activation='tanh', recurrent_activation='sigmoid', name='lstm_1')(x_combined)
         x = layers.BatchNormalization(name='batch_norm_1')(x)
 
         # Second LSTM Block
-        x = layers.GRU(512, return_sequences=True, activation='tanh', recurrent_activation='sigmoid', name='lstm_2')(x)
+        x = layers.LSTM(512, return_sequences=True, activation='tanh', recurrent_activation='sigmoid', name='lstm_2')(x)
 
         # Output Layer
         outputs = layers.TimeDistributed(layers.Dense(num_output_features), name='output_layer')(x)
