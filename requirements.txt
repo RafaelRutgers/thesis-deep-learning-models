@@ -1,0 +1,13 @@
+numpy
+pandas
+matplotlib
+scikit-learn
+tensorflow
+keras
+kerastuner
+h5py
+json
+livelossplot
+visualkeras
+ipywidgets
+ipython
